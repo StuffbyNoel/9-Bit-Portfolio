@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>9-Bit | stuffbynoel</title>
+    
+    <!-- Google Fonts: Poppins and Bebas Neue -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tailwind Config for Custom Font -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'poppins': ['"Poppins"', 'sans-serif'],
+                        'bebas': ['"Bebas Neue"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-poppins bg-black text-white selection:bg-white selection:text-black antialiased overflow-x-hidden">
+
+    <!-- Navigation Header -->
+    <header class="fixed top-0 left-0 w-full p-6 md:p-8 flex justify-between items-center z-50 font-light mix-blend-difference">
+        <a href="https://yourusername.github.io" class="text-xs md:text-sm tracking-widest cursor-pointer hover:text-gray-300 transition-colors active:scale-95 inline-block group">
+            <span class="inline-block transition-transform group-hover:-translate-x-1">&larr;</span> BACK TO PORTFOLIO
+        </a>
+        <a href="https://yourusername.github.io#contact" class="text-xs md:text-sm tracking-widest cursor-pointer hover:text-gray-300 transition-colors active:scale-95 inline-block text-right">
+            @stuffbynoel
+        </a>
+    </header>
+
+    <!-- Project Hero Section -->
+    <section class="min-h-screen w-full flex flex-col items-center justify-center px-4 relative pt-20 pb-10">
+        
+        <!-- Project Titles -->
+        <div class="flex flex-col items-center text-center z-10 mb-12 w-full max-w-5xl">
+            <div class="bg-[#151515] border border-[#2a2a2a] rounded px-3 py-1 mb-6 text-gray-200 font-bebas tracking-widest text-sm md:text-lg">
+                2D Platformer Game
+            </div>
+            <h1 class="font-bebas text-7xl md:text-9xl lg:text-[12rem] tracking-wide text-center leading-none mb-4 uppercase">
+                9-BIT
+            </h1>
+        </div>
+
+        <!-- Media Placeholder (Video/Image) -->
+        <div class="w-full max-w-5xl aspect-video bg-[#0a0a0a] border border-[#2a2a2a] rounded-sm relative group overflow-hidden flex items-center justify-center">
+            <!-- Replace this div with an <img> or <iframe> tag when you have your media -->
+            <p class="font-bebas text-4xl text-[#2a2a2a] tracking-widest group-hover:scale-110 transition-transform duration-700">GAMEPLAY TRAILER / SCREENSHOT</p>
+        </div>
+
+        <!-- Project Details -->
+        <div class="w-full max-w-5xl mt-12 grid grid-cols-1 md:grid-cols-3 gap-10">
+            <!-- Role / Tools -->
+            <div class="col-span-1 flex flex-col gap-6 font-light">
+                <div>
+                    <h3 class="font-bebas text-2xl tracking-widest text-gray-400 mb-2">ROLE</h3>
+                    <p class="text-sm tracking-wider text-gray-200">Game Developer & Designer</p>
+                </div>
+                <div>
+                    <h3 class="font-bebas text-2xl tracking-widest text-gray-400 mb-2">TOOLS</h3>
+                    <p class="text-sm tracking-wider text-gray-200">Unity, C#, Photoshop</p>
+                </div>
+                <div>
+                    <h3 class="font-bebas text-2xl tracking-widest text-gray-400 mb-2">TIMELINE</h3>
+                    <p class="text-sm tracking-wider text-gray-200">3 Months</p>
+                </div>
+            </div>
+
+            <!-- Description -->
+            <div class="col-span-1 md:col-span-2">
+                <h3 class="font-bebas text-3xl tracking-widest text-white mb-4">THE CONCEPT</h3>
+                <p class="text-gray-300 font-light tracking-wide leading-relaxed mb-6">
+                    9-Bit is a fast-paced 2D platformer that explores the boundaries of retro aesthetics mixed with modern physics-based movement. The core mechanic revolves around precise timing and navigating treacherous environments while solving environmental puzzles.
+                </p>
+                <p class="text-gray-300 font-light tracking-wide leading-relaxed">
+                    Developing this required building a custom movement controller from scratch to ensure the player character felt perfectly responsive, combining classic pixel-art philosophies with smooth, high-framerate animations.
+                </p>
+            </div>
+        </div>
+
+        <!-- Next Project Button -->
+        <div class="w-full max-w-5xl mt-24 flex justify-end border-t border-[#2a2a2a] pt-8">
+            <a href="#" class="group flex flex-col items-end text-right hover:opacity-70 transition-opacity">
+                <span class="text-xs font-light tracking-widest text-gray-500 mb-1">NEXT PROJECT</span>
+                <span class="font-bebas text-4xl tracking-widest text-white flex items-center gap-2">
+                    ABYSS BALL <span class="group-hover:translate-x-2 transition-transform">&rarr;</span>
+                </span>
+            </a>
+        </div>
+    </section>
+
+</body>
+</html>
