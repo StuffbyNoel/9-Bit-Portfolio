@@ -27,29 +27,24 @@
         }
     </script>
 </head>
-<body class="font-poppins bg-black text-white selection:bg-white selection:text-black antialiased overflow-x-hidden">
+<body id="top" class="font-poppins bg-black text-white selection:bg-white selection:text-black antialiased overflow-x-hidden">
 
     <!-- Navigation Header -->
-    <header class="fixed top-0 left-0 w-full p-6 md:p-8 flex justify-between items-center z-50 font-light mix-blend-difference">
-        <a href="https://stuffbynoel.github.io/Portfolio/" class="text-xs md:text-sm tracking-widest cursor-pointer hover:text-gray-300 transition-colors active:scale-95 inline-block group">
-            <span class="inline-block transition-transform group-hover:-translate-x-1">&larr;</span> BACK TO PORTFOLIO
-        </a>
-        <a href="https://yourusername.github.io#contact" class="text-xs md:text-sm tracking-widest cursor-pointer hover:text-gray-300 transition-colors active:scale-95 inline-block text-right">
+    <header class="fixed top-0 left-0 w-full p-6 md:p-8 flex justify-end items-center z-50 font-light mix-blend-difference pointer-events-none">
+        <a href="#top" class="text-xs md:text-sm tracking-widest pointer-events-auto cursor-pointer hover:text-gray-300 transition-colors active:scale-95 inline-block text-right">
             @stuffbynoel
         </a>
     </header>
 
     <!-- Project Hero Section -->
-    <section class="min-h-screen w-full flex flex-col items-center justify-center px-4 relative pt-20 pb-10">
+    <section class="min-h-screen w-full flex flex-col items-center px-6 md:px-12 relative pt-24 pb-20">
         
-        <!-- Project Titles -->
+        <!-- Project Titles (Centered) -->
         <div class="flex flex-col items-center text-center z-10 mb-12 w-full max-w-5xl">
-            <div class="bg-[#151515] border border-[#2a2a2a] rounded px-3 py-1 mb-6 text-gray-200 font-bebas tracking-widest text-sm md:text-lg">
+            <img src="9Bit_LOGO_Color.png" alt="9-Bit Logo" class="h-44 md:h-64 lg:h-80 mb-4 object-contain">
+            <div class="bg-[#151515] border border-[#2a2a2a] rounded px-4 py-1.5 text-gray-200 font-bebas tracking-widest text-lg md:text-2xl mt-2">
                 2D Platformer Game
             </div>
-            <h1 class="font-bebas text-7xl md:text-9xl lg:text-[12rem] tracking-wide text-center leading-none mb-4 uppercase">
-                9-BIT
-            </h1>
         </div>
 
         <!-- Media Placeholder (Video/Image) -->
@@ -86,16 +81,6 @@
                     Developing this required building a custom movement controller from scratch to ensure the player character felt perfectly responsive, combining classic pixel-art philosophies with smooth, high-framerate animations.
                 </p>
             </div>
-        </div>
-
-        <!-- Next Project Button -->
-        <div class="w-full max-w-5xl mt-24 flex justify-end border-t border-[#2a2a2a] pt-8">
-            <a href="#" class="group flex flex-col items-end text-right hover:opacity-70 transition-opacity">
-                <span class="text-xs font-light tracking-widest text-gray-500 mb-1">NEXT PROJECT</span>
-                <span class="font-bebas text-4xl tracking-widest text-white flex items-center gap-2">
-                    ABYSS BALL <span class="group-hover:translate-x-2 transition-transform">&rarr;</span>
-                </span>
-            </a>
         </div>
     </section>
 
