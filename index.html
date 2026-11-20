@@ -47,10 +47,40 @@
             </div>
         </div>
 
-        <!-- Media Placeholder (Video/Image) -->
-        <div class="w-full max-w-5xl aspect-video bg-[#0a0a0a] border border-[#2a2a2a] rounded-sm relative group overflow-hidden flex items-center justify-center">
-            <!-- Replace this div with an <img> or <iframe> tag when you have your media -->
-            <p class="font-bebas text-4xl text-[#2a2a2a] tracking-widest group-hover:scale-110 transition-transform duration-700">GAMEPLAY TRAILER / SCREENSHOT</p>
+        <!-- Main Gameplay Video Showcase (1920x1080 / 16:9) -->
+        <!-- Rename your video file to '9Bit_Gameplay.mp4' or update the src below to match -->
+        <div class="w-full max-w-5xl aspect-video bg-[#0a0a0a] border border-[#2a2a2a] hover:border-white/40 rounded-sm relative group overflow-hidden flex items-center justify-center shadow-2xl transition-colors duration-300">
+            <video
+                id="ninebit-gameplay-video"
+                src="./9Bit_Gameplay.mp4"
+                autoplay
+                loop
+                muted
+                playsinline
+                controls
+                class="w-full h-full object-cover"
+            ></video>
+
+            <!-- Label Badge -->
+            <span class="absolute top-3 left-3 bg-black/75 border border-white/15 backdrop-blur-sm px-2.5 py-0.5 rounded text-xs font-bebas tracking-widest text-gray-200 pointer-events-none">
+                GAMEPLAY &bull; 16:9
+            </span>
+
+            <!-- Quick Mute / Unmute Toggle -->
+            <button
+                id="ninebit-mute-btn"
+                type="button"
+                aria-label="Unmute 9-Bit Gameplay audio"
+                class="absolute top-3 right-3 z-10 flex items-center gap-1.5 bg-black/75 hover:bg-white hover:text-black border border-white/25 backdrop-blur-sm px-2.5 py-1 rounded text-xs font-bebas tracking-widest text-gray-200 transition-colors cursor-pointer active:scale-95"
+            >
+                <svg id="ninebit-icon-muted" class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M11 5L6 9H2v6h4l5 4V5zM23 9l-6 6M17 9l6 6"/>
+                </svg>
+                <svg id="ninebit-icon-unmuted" class="hidden w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M11 5L6 9H2v6h4l5 4V5zM15.54 8.46a5 5 0 010 7.07M19.07 4.93a10 10 0 010 14.14"/>
+                </svg>
+                <span id="ninebit-mute-label">MUTED</span>
+            </button>
         </div>
 
         <!-- Project Details -->
@@ -82,7 +112,70 @@
                 </p>
             </div>
         </div>
+
+        <!-- Square Game Assets Grid (1080x1080 / 1:1) -->
+        <!-- Duplicate or remove any card below to match the exact number of assets you have -->
+        <div class="w-full max-w-5xl mt-20">
+            <h3 class="font-bebas text-3xl tracking-widest text-white mb-6">GAME ASSETS</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Asset 01 -->
+                <div class="aspect-square bg-[#0a0a0a] border border-[#2a2a2a] hover:border-white/30 rounded-sm relative group overflow-hidden flex items-center justify-center transition-colors duration-300">
+                    <img src="./9Bit_Asset1.png" alt="9-Bit Game Asset 01" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');">
+                    <p class="hidden font-bebas text-2xl text-[#2a2a2a] tracking-widest">ASSET 01</p>
+                    <span class="absolute bottom-3 left-3 bg-black/75 border border-white/15 backdrop-blur-sm px-2.5 py-0.5 rounded text-xs font-bebas tracking-widest text-gray-200 pointer-events-none">
+                        Hacker
+                    </span>
+                </div>
+
+                <!-- Asset 02 -->
+                <div class="aspect-square bg-[#0a0a0a] border border-[#2a2a2a] hover:border-white/30 rounded-sm relative group overflow-hidden flex items-center justify-center transition-colors duration-300">
+                    <img src="./9Bit_Asset2.png" alt="9-Bit Game Asset 02" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');">
+                    <p class="hidden font-bebas text-2xl text-[#2a2a2a] tracking-widest">ASSET 02</p>
+                    <span class="absolute bottom-3 left-3 bg-black/75 border border-white/15 backdrop-blur-sm px-2.5 py-0.5 rounded text-xs font-bebas tracking-widest text-gray-200 pointer-events-none">
+                        Virus
+                    </span>
+                </div>
+            </div>
+        </div>
     </section>
+
+    <!-- Gameplay Video Audio Toggle Script -->
+    <script>
+        const nineBitVideo = document.getElementById('ninebit-gameplay-video');
+        const nineBitMuteBtn = document.getElementById('ninebit-mute-btn');
+        const nineBitIconMuted = document.getElementById('ninebit-icon-muted');
+        const nineBitIconUnmuted = document.getElementById('ninebit-icon-unmuted');
+        const nineBitMuteLabel = document.getElementById('ninebit-mute-label');
+
+        function syncNineBitMuteUI() {
+            if (!nineBitVideo || !nineBitMuteBtn) return;
+            const isMuted = nineBitVideo.muted;
+            nineBitIconMuted.classList.toggle('hidden', !isMuted);
+            nineBitIconUnmuted.classList.toggle('hidden', isMuted);
+            nineBitMuteLabel.textContent = isMuted ? 'MUTED' : 'SOUND ON';
+
+            nineBitMuteBtn.setAttribute('aria-label', `${isMuted ? 'Unmute' : 'Mute'} 9-Bit Gameplay audio`);
+            nineBitMuteBtn.classList.toggle('bg-white', !isMuted);
+            nineBitMuteBtn.classList.toggle('text-black', !isMuted);
+            nineBitMuteBtn.classList.toggle('border-white', !isMuted);
+            nineBitMuteBtn.classList.toggle('bg-black/75', isMuted);
+            nineBitMuteBtn.classList.toggle('text-gray-200', isMuted);
+            nineBitMuteBtn.classList.toggle('border-white/25', isMuted);
+        }
+
+        if (nineBitVideo && nineBitMuteBtn) {
+            nineBitMuteBtn.addEventListener('click', () => {
+                nineBitVideo.muted = !nineBitVideo.muted;
+                if (!nineBitVideo.muted) {
+                    nineBitVideo.play().catch(() => {});
+                }
+                syncNineBitMuteUI();
+            });
+
+            // Keep button synced with native player volume controls
+            nineBitVideo.addEventListener('volumechange', syncNineBitMuteUI);
+        }
+    </script>
 
 </body>
 </html>
